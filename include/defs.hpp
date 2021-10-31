@@ -6,6 +6,8 @@ extern int ap;
 extern int intake_state;
 extern int leftY;
 extern int rightY;
+extern int tank1act;
+extern int tank2act;
 extern pros::Motor l1;
 extern pros::Motor l2;
 extern pros::Motor l3;

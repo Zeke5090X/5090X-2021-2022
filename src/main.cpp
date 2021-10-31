@@ -1,5 +1,4 @@
 #include "main.h"
-//#include "robot.cpp"
 int page = 0;
 int ap = 0;
 int intake_state = 0;
@@ -98,18 +97,6 @@ void autonomous() {}
 
 void opcontrol() {
 	while (true) {
-		/*right_y = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-		left_y = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-
-		l1.move(left_y);
-		l2.move(-left_y);
-		l3.move(left_y);
-		r1.move(-right_y);
-		r2.move(-right_y);
-		r3.move(right_y);*/
-		//simple drive trian code
-		//remove once you get the other stuff figured out
-
 		drive();
 		goallift();
 		llemugui();
