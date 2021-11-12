@@ -100,7 +100,7 @@ void opcontrol() {
 		drive();
 		goallift();
 		llemugui();
-		//intakes();
+		
 		pros::delay(20);
 	}
 }

@@ -5,6 +5,7 @@ int tank1act = 0;
 int tank2act = 0;
 bool tared = false;
 void goallift(){
+    int liftpos = lift.get_position();
     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){
         gl.set_value(true);
         tank1act++;
@@ -14,9 +15,10 @@ void goallift(){
         tank1act++;
     }
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_X)){
-        if(tared = true){
-            if(lift.get_position() == -665){
+        if(tared == true || master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
+            if(liftpos <= -1400 && master.get_digital(pros::E_CONTROLLER_DIGITAL_Y) == false){
                 lift.move_velocity(0);
+                printf("stop");
             }else{
                 lift.move_velocity(-200);
             }
@@ -24,21 +26,24 @@ void goallift(){
         else{}
         }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_B)){
-        if(tared = true){
-            if(lift.get_position() == 0){
+        if(tared == true){
+            if(liftpos >= 0  && master.get_digital(pros::E_CONTROLLER_DIGITAL_Y) == false){
                 lift.move_velocity(0);
-            }else{
+            }
+            else{
                 lift.move_velocity(200);
             }
-        }else{
+        }
+        else{
             lift.move_velocity(200);
         }
     }else{
         lift.move_velocity(0);
     }
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
-        lift.tare_position();
-        tared = false;
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A)){
+        lift.set_zero_position(0);
+        tared = true;
+        printf("tared is enabled");
     }
 
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
@@ -48,9 +53,7 @@ void goallift(){
     }else{
         fbar.move_velocity(0);
     }
-    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
     
-    }
     //master.print(0, 0, "Tank 1 %d", tank1act);
     //master.print(1, 0, "Tank 2 %d", tank2act);
 }

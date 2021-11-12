@@ -21,7 +21,7 @@ void rightdrive(int rds){
 void drive(){
     bool reverse_drive = false;
    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)){
-       !reverse_drive;
+       //!reverse_drive;
    }
    //toggles which side of the robot is the front
    right_y = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
@@ -52,14 +52,14 @@ void drive(){
    }
    //4bar is the front
    else{
-        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
             l1.move_velocity(-70);
 		    l2.move_velocity(70);
 		    l3.move_velocity(-70);
 		    r1.move_velocity(70);
 		    r2.move_velocity(70);
 		    r3.move_velocity(-70);
-        }else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
+        }else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
             l1.move_velocity(70);
 		    l2.move_velocity(-70);
 		    l3.move_velocity(70);
