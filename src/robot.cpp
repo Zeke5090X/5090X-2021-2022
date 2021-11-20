@@ -15,3 +15,6 @@ pros::ADIDigitalOut clamp(2, cstate);
 pros::Motor fbar(11);
 
 pros::Motor lift(12);
+pros::ADIMotor red(8);
+pros::ADIMotor blue(6);
+pros::ADIMotor green(7);

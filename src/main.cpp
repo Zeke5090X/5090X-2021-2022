@@ -2,6 +2,7 @@
 int page = 0;
 int ap = 0;
 int intake_state = 0;
+
 /**
  * A callback function for LLEMU's center button.
  * Advances the gui by 1 page
@@ -31,6 +32,52 @@ void on_right_button() {
 		ap = ap + 1;
 	}
 }
+void setColor(int r, int g, int b){
+	float redVal = r/2;
+	float blueVal = b/2;
+	float greenVal = g/2;
+	red.set_value(redVal);
+	blue.set_value(blueVal);
+	green.set_value(greenVal);
+}
+
+void turnOnLights(void*){
+	setColor(255,255,255);
+	int stepSpeed = 2;
+	while(true){
+		setColor(255,0,0);
+		for(int i = 0; i < 255; i++){
+			setColor(255,i,0);
+			pros::delay(stepSpeed);
+		}
+		for(int i = 255; i >= 0; i--){
+			setColor(i,255,0);
+			pros::delay(stepSpeed);
+		}
+		for(int i = 0; i < 255; i++){
+			setColor(0,255,i);
+			pros::delay(stepSpeed);
+
+		}
+		for(int i = 255; i >= 0; i--){
+			setColor(0,i,255);
+			pros::delay(stepSpeed);
+
+		}
+		for(int i = 0; i < 255; i++){
+			setColor(i,0,255);
+			pros::delay(stepSpeed);
+
+		}
+		for(int i = 255; i >= 0; i--){
+			setColor(255,0,i);
+			pros::delay(stepSpeed);
+
+		}
+	}
+
+}
+
 //call back functions for the left and right buttons
 //cycles forward and back through auton presets
 /**
@@ -96,6 +143,7 @@ void autonomous() {}
  */
 
 void opcontrol() {
+	pros::Task lightsTask(turnOnLights);
 	while (true) {
 		drive();
 		goallift();

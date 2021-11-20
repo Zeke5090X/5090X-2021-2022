@@ -4,8 +4,11 @@ bool cstate = true;
 int tank1act = 0;
 int tank2act = 0;
 bool tared = false;
+bool fbarcoast = false;
+bool liftcoast = false;
 void goallift(){
     int liftpos = lift.get_position();
+    int fbarpos = fbar.get_position();
     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)){
         gl.set_value(true);
         tank1act++;
@@ -53,7 +56,31 @@ void goallift(){
     }else{
         fbar.move_velocity(0);
     }
-    
+    if(fbarpos >= -35){
+        //if(fbarcoast == true){
+            fbar.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+            //fbarcoast == false;
+            printf("coast");
+        //}
+    }else if(fbarpos < -35){
+        //if(fbarcoast == true){
+            fbar.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+            //fbarcoast == false;
+            printf("brake");
+        //}
+    }else{
+        fbar.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+        printf("dynamic breaking broke");
+    }
+    //dynamic braking for the 4bar
+    /*if(liftpos < 50){
+        lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    }else if(liftpos >= 50){
+        lift.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    }else{
+        lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    }*/
+    //dynamic braking for the lift
     //master.print(0, 0, "Tank 1 %d", tank1act);
     //master.print(1, 0, "Tank 2 %d", tank2act);
 }
