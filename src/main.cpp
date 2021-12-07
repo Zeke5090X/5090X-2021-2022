@@ -8,7 +8,7 @@ int intake_state = 0;
  * Advances the gui by 1 page
  * 
  */
-void on_center_button() {
+/*void on_center_button() {
 	static bool pressed = false;
 	pressed = !pressed;
 	if (pressed) {
@@ -31,7 +31,7 @@ void on_right_button() {
 	if (pressed) {
 		ap = ap + 1;
 	}
-}
+}*/
 void setColor(int r, int g, int b){
 	float redVal = r/2;
 	float blueVal = b/2;
@@ -87,14 +87,15 @@ void turnOnLights(void*){
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
+	//pros::lcd::initialize();
 	//pros::lcd::set_text(1, "Hello PROS User!");
 	printf("initialize wasn't skipped");
-	pros::lcd::register_btn0_cb(on_left_button);
+	/*pros::lcd::register_btn0_cb(on_left_button);
 	pros::lcd::register_btn1_cb(on_center_button);
-	pros::lcd::register_btn2_cb(on_right_button);
+	pros::lcd::register_btn2_cb(on_right_button);*/
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	fbar.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	lvglgui();
 }
 
 /**
@@ -126,7 +127,28 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	switch (ap){
+		case 1:
+		//stuff goes here
+		break;
+		case 2:
+		//stuff goes here
+		break;
+		case 3: 
+		//stuff goes here
+		break;
+		case 4:
+		//stuff goes here
+		break;
+		case 5:
+		//stuff goes here
+		break;
+		case 6:
+		//stuff goes here
+		break;
+	}
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -147,7 +169,7 @@ void opcontrol() {
 	while (true) {
 		drive();
 		goallift();
-		llemugui();
+		//llemugui();
 		
 		pros::delay(20);
 	}
