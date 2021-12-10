@@ -170,7 +170,7 @@ void opcontrol() {
 		drive();
 		goallift();
 		//llemugui();
-		
+		printf("%d", ap);
 		pros::delay(20);
 	}
 }

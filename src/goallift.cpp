@@ -56,22 +56,22 @@ void goallift(){
     }else{
         fbar.move_velocity(0);
     }
-    if(fbarpos >= -35){
+    /*if(fbarpos >= -35){
         //if(fbarcoast == true){
             fbar.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
             //fbarcoast == false;
-            printf("coast");
+            //printf("coast");
         //}
     }else if(fbarpos < -35){
         //if(fbarcoast == true){
             fbar.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
             //fbarcoast == false;
-            printf("brake");
+            //printf("brake");
         //}
     }else{
         fbar.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
         printf("dynamic breaking broke");
-    }
+    }*/
     //dynamic braking for the 4bar
     /*if(liftpos < 50){
         lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);

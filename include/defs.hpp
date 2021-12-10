@@ -36,7 +36,8 @@ extern void lvglgui();
 extern void lvglstyle();
 extern void lvglla();
 extern void lvglra();
-extern void lvglscreens();
+extern void lvglinfo();
+//extern void lvglscreens();
 
 extern pros::ADIMotor red;
 extern pros::ADIMotor blue;
@@ -53,5 +54,9 @@ extern lv_style_t matrixStyleBtnPrMain;
 extern lv_obj_t * lascr;
 extern lv_obj_t * rascr;
 extern lv_obj_t * infoscr;
-
+extern lv_obj_t * lascrTabButton;
+extern lv_obj_t * tv;
+extern lv_obj_t * latab;
+extern lv_obj_t * ratab;
+extern lv_obj_t * infotab;
 //static lv_res_t btn_click_action(lv_obj_t * btn);
