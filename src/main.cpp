@@ -166,6 +166,13 @@ void autonomous() {
 
 void opcontrol() {
 	pros::Task lightsTask(turnOnLights);
+	fbar.move_velocity(200);
+	gl.set_value(false);
+	
+	///////////////////////////////////////////////
+	// comment out line 169 and 170 before match //
+	///////////////////////////////////////////////
+
 	while (true) {
 		drive();
 		goallift();

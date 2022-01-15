@@ -51,8 +51,8 @@ extern lv_style_t matrixStyleBtnPr;
 extern lv_style_t matrixStyleBtnRelMain;
 extern lv_style_t matrixStyleBtnPrMain;
 
-extern lv_obj_t * lascr;
-extern lv_obj_t * rascr;
+//extern lv_obj_t * laLabel;
+//extern lv_obj_t * raLabel;
 extern lv_obj_t * infoscr;
 extern lv_obj_t * lascrTabButton;
 extern lv_obj_t * tv;
