@@ -92,8 +92,12 @@ void initialize() {
 	printf("initialize wasn't skipped");
 	pros::lcd::register_btn0_cb(on_left_button);
 	pros::lcd::register_btn1_cb(on_center_button);
+<<<<<<< Updated upstream
 	pros::lcd::register_btn2_cb(on_right_button);
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+=======
+	pros::lcd::register_btn2_cb(on_right_button);*/
+>>>>>>> Stashed changes
 	fbar.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
 
@@ -144,11 +148,21 @@ void autonomous() {}
 
 void opcontrol() {
 	pros::Task lightsTask(turnOnLights);
+<<<<<<< Updated upstream
 	while (true) {
 		drive();
 		goallift();
 		llemugui();
 		
+=======
+	
+	while (true) {
+		drive();
+		goallift();
+		intakes();
+		//llemugui();
+		printf("%d", ap);
+>>>>>>> Stashed changes
 		pros::delay(20);
 	}
 }
