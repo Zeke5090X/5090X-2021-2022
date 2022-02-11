@@ -7,13 +7,9 @@ extern int intake_state;
 extern int leftY;
 extern int rightY;
 extern int tank1act;
-<<<<<<< Updated upstream
-extern int tank2act;
-=======
 extern int left_y_f;
 extern int right_y_f;
 
->>>>>>> Stashed changes
 extern pros::Motor l1;
 extern pros::Motor l2;
 extern pros::Motor l3;
@@ -28,14 +24,9 @@ extern pros::ADIDigitalOut gl;
 extern pros::ADIDigitalOut clamp;
 extern bool glstate;
 extern bool cstate;
-<<<<<<< Updated upstream
-extern bool fbarcoast;
-extern bool liftcoast;
-=======
 extern bool intake_on;
 extern bool intake_reversed;
 
->>>>>>> Stashed changes
 extern void goallift();
 extern void llemugui();
 extern void intakes();

@@ -6,7 +6,7 @@ int right_y = 0;
 int left_y = 0;
 int right_y_f = 0;
 int left_y_f = 0;
-const float averages = 12.5;
+const float averages = 10.5;
 
 // int right_y_c [averages] = { };
 // int left_y_c [averages] = { };
@@ -15,17 +15,17 @@ int n=0;
 float real_left = 0;
 float real_right = 0;
 
-void leftdrive(int lds){
-    l1.move_velocity(lds);
-    l2.move_velocity(lds);
-    l3.move_velocity(lds);
-}
-//groups together the left drive motors
-void rightdrive(int rds){
-    r1.move_velocity(rds);
-    r2.move_velocity(rds);
-    r3.move_velocity(rds);
-}
+// void leftdrive(int lds){
+//     l1.move_velocity(lds);
+//     l2.move_velocity(lds);
+//     l3.move_velocity(lds);
+// }
+// //groups together the left drive motors
+// void rightdrive(int rds){
+//     r1.move_velocity(rds);
+//     r2.move_velocity(rds);
+//     r3.move_velocity(rds);
+// }
 //groups together the right drive motors
 //this doesnt work. will revisit
 
@@ -71,13 +71,13 @@ void drive(){
 		    r1.move_velocity(70);
 		    r2.move_velocity(70);
 		    r3.move_velocity(70);
-        }else{
-            l1.move(-real_left);
-	        l2.move(-real_left);
-	        l3.move(-real_left);
-	        r1.move(real_right);
-	        r2.move(real_right);
-	        r3.move(real_right);
+        }else{ 
+            l1.move_voltage(-real_left*120);
+	        l2.move_voltage(-real_left*120);
+	        l3.move_voltage(-real_left*120);
+	        r1.move_voltage(real_right*120);
+	        r2.move_voltage(real_right*120);
+	        r3.move_voltage(real_right*120);
    }
     // cycle = cycle++;
     // if(cycle == averages){
